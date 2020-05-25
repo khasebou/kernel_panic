@@ -1,0 +1,19 @@
+# ROM and VGA BIOS images ---------------------------------------------
+ 
+megs:            32
+display_library: sdl
+romimage:        file=/usr/share/bochs/BIOS-bochs-latest
+vgaromimage:     file=/usr/share/bochs/VGABIOS-lgpl-latest
+ 
+# boot from floppy using our disk image -------------------------------
+ 
+floppya: 1_44="build/boot1.bin", status=inserted
+boot: floppy
+floppy_bootsig_check: disabled=1
+ 
+# logging and reporting -----------------------------------------------
+ 
+log:         build/OSDev.log             # All errors and info logs will output to OSDev.log
+error:       action=report 
+info:        action=report
+cpu:             count=1, ips=1000000
